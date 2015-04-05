@@ -11,6 +11,10 @@
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
+
+    </head>
+
+    <body>
 <script type="text/javascript">
 (function($){
   $(function(){
@@ -20,14 +24,6 @@
 
   }); // end of document ready
 })(jQuery); // en
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=356957274469491&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
  //envio de mensage 
 var socket = io();
 $(function(){
@@ -46,16 +42,13 @@ $("#message").append($('<li>').text(id+' : ' +msg));
 });
 
  </script>
-    </head>
-
-    <body>
-     <nav class= "teal lighten-2">
+<nav class= "teal lighten-2">
        <a href="#" class="brand-logo center">Only Chat Room</a>
       <ul id="slide-out" class="side-nav">
       <li><a href="https://www.facebook.com/cshluesocc">CSHL</a></li>
       <li><a href=" https://www.facebook.com/mozillaelsalvador">MozSV</a></li>
       <li><a>About the source</a></li>
-      <li><a href="#!"><img src="http://www.xgouchet.fr/images/fork_me_on_github.png"></a></li>
+      <li><a href="https://github.com/EnriqueV/onlychatroom"><img src="http://www.xgouchet.fr/images/fork_me_on_github.png"></a></li>
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
     <br>
@@ -96,11 +89,10 @@ $("#message").append($('<li>').text(id+' : ' +msg));
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Share</h5>
                 <ul>
-                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
                  <br>
                  <br>
-                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:3000" data-text="simple-chat">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://onlychatroom.herokuapp.com/" data-text="simple-chat">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 <br>
    
                 </ul>
@@ -115,4 +107,3 @@ $("#message").append($('<li>').text(id+' : ' +msg));
         </footer>
     </body>
   </html>
-        
