@@ -1,0 +1,21 @@
+{
+  "name": "onlychatroom",
+  "version": "1.0.0",
+  "description": "only chat room in nodejs,express and socket.io",
+  "main": "app.js",
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines":{
+
+   "node": "0.12.1"
+
+  },
+  "author": "Eduardo Valencia",
+  "license": "ISC"
+}

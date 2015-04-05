@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/css/materialize.min.css">
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+         <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
+<script type="text/javascript">
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // en
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=356957274469491&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+ //envio de mensage 
+var socket = io();
+$(function(){
+$("form").submit(function(){
+var mensaje = $("#msj").val();
+if(mensaje=='') return false;
+//evento message en el server nodejs
+console.log(mensaje)
+socket.emit('message',mensaje);
+$("#msj").val('').focus();
+return false;
+});
+});
+socket.on('message',function(msg,id){
+$("#message").append($('<li>').text(id+' : ' +msg));
+});
+
+ </script>
+    </head>
+
+    <body>
+     <nav class= "teal lighten-2">
+       <a href="#" class="brand-logo center">Only Chat Room</a>
+      <ul id="slide-out" class="side-nav">
+      <li><a href="https://www.facebook.com/cshluesocc">CSHL</a></li>
+      <li><a href=" https://www.facebook.com/mozillaelsalvador">MozSV</a></li>
+      <li><a>About the source</a></li>
+      <li><a href="#!"><img src="http://www.xgouchet.fr/images/fork_me_on_github.png"></a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+    <br>
+  </nav>   
+   <div class="container">
+
+<br>
+ <!--Contenido del chat-->
+ <div>
+ <ul id="message">
+</ul>
+</div>
+<br>
+<div id="controls" class="col s6">
+  <div class="row">
+    <form action="" class="col s6">
+
+
+<input type="text" id="msj" placeholder="write message...">
+<button class="btn waves-effect waves-light" type="submit" id="btn"> Send
+    <i class="mdi-content-send right"></i>
+  </button></form>
+  </div>
+</div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Simple-chat</h5>
+                <p class="grey-text text-lighten-4">This application is development in Nodejs,express and socket io, the application is hosted in <a href="https://www.heroku.com/">heroku</a></p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Share</h5>
+                <ul>
+                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
+                 <br>
+                 <br>
+                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:3000" data-text="simple-chat">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <br>
+   
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015
+            </div>
+          </div>
+        </footer>
+    </body>
+  </html>
+        
