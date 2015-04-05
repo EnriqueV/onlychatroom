@@ -1,21 +1,26 @@
 {
-  "name": "onlychatroom",
-  "version": "1.0.0",
-  "description": "only chat room in nodejs,express and socket.io",
+  "name": "only-chat-room",
+  "version": "0.1",
+  "description": "app in nodejs,express,socketio",
   "main": "app.js",
-  "dependencies": {
-    "express": "*",
-    "socket.io": "*"
-  },
-  "devDependencies": {},
   "scripts": {
     "start": "node app.js"
   },
-  "engines":{
-
-   "node": "0.12.1"
-
+  "dependencies": {
+     "express": "*",
+     "socket.io": "*"
   },
-  "author": "Eduardo Valencia",
-  "license": "ISC"
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EnriqueV/onlychatroom"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "GPL"
 }
