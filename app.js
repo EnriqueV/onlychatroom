@@ -23,6 +23,6 @@ console.log("Disconnect : %s",socket.id);
  
 });
  
-http.listen(PORT,function(){
+http.listen(process.env.PORT || 3000,function(){
 console.log('The server listen to %s',PORT);
 });
